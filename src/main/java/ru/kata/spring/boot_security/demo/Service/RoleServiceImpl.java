@@ -30,20 +30,12 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public HashSet<Role> getSetOfRoles(long[] roleId) {
-        Set<Role> role = new HashSet<>();
-        for (Long id : roleId) {
-            role.add(getOne(id));
-        }
-        return (HashSet) role;
-    }
-
-    @Override
-    public void relation(User user, long[] roleId) {
+    public void getSetOfRoles(User user, long[] roleId) {
         Set<Role> role = new HashSet<>();
         for (Long id : roleId) {
             role.add(getOne(id));
         }
         user.setRoles(role);
     }
+
 }
